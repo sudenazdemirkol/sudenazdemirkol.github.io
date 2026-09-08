@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sudenazdemirkol.github.io/sitemap.xml
