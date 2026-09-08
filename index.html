@@ -445,7 +445,20 @@ section{ padding:120px 0; position:relative; }
   display:grid; grid-template-columns:1.2fr 1fr;
   gap:46px; align-items:center;
 }
-.feature + .feature{ margin-top:70px; }
+.feature + .feature{ margin-top:84px; }
+/* Sırayla değişen düzen: tek numaralı projelerde görsel sağda */
+.feature.ters .feature-img{ order:2; }
+.feature-link{
+  display:inline-flex; align-items:center; gap:9px;
+  margin-top:22px;
+  border:1px solid var(--accent); color:var(--accent);
+  padding:11px 22px;
+  font-size:.66rem; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase;
+  transition:all .3s ease;
+}
+.feature-link:hover{ background:var(--accent); color:#FFFFFF; opacity:1; transform:translateY(-2px); }
+.feature-link svg{ width:14px; height:14px; }
 
 .feature-img{
   display:block; line-height:0;
@@ -592,6 +605,7 @@ footer .accent{ color:var(--accent); font-weight:700; }
   .scroll-cue{ bottom:24px; }
   .stats{ grid-template-columns:1fr; gap:34px; }
   .feature{ grid-template-columns:1fr; gap:28px; }
+  .feature.ters .feature-img{ order:0; }
   .feature h3{ font-size:1.25rem; }
   .row{ grid-template-columns:1fr; }
   .exp{ grid-template-columns:1fr; gap:10px; }
@@ -734,7 +748,7 @@ footer .accent{ color:var(--accent); font-weight:700; }
         </div>
         <h3>Yazılım Temelleri</h3>
         <div class="mini-line"></div>
-        <p>C, Python ve Java ile temel seviyede kod yazıyorum. Algoritma ve veri yapıları konularını dersle birlikte pratikte de uygulamaya çalışıyorum.</p>
+        <p>C, Python ve Java ile temel seviyede kod yazıyorum. Algoritma ve veri yapılarını dersle sınırlı bırakmayıp kendi projelerimde uyguluyorum — Dijkstra, graph veri yapıları ve sezgisel rota optimizasyonu üzerine çalıştım.</p>
       </div>
 
       <div class="skill reveal">
@@ -872,6 +886,36 @@ footer .accent{ color:var(--accent); font-weight:700; }
           <span>Supabase</span>
           <span>Headwind MDM</span>
         </div>
+      </div>
+    </article>
+
+    <!-- İKİNCİ PROJE -->
+    <article class="feature ters reveal">
+      <div class="feature-img">
+        <img src="proje-routesolver.jpg" alt="route-solver komut satırı çıktısı: 22 test geçti, en kısa yol ve rota optimizasyonu sonuçları" loading="lazy">
+      </div>
+      <div>
+        <p class="feature-kicker">Kişisel Proje &middot; Python</p>
+        <h3>route-solver</h3>
+        <p class="desc">
+          Küçük bir teslimat ağında (durak = düğüm, mesafe = kenar) iki nokta arası en kısa yolu ve
+          birden fazla durağı verimli sırayla gezen rotayı bulan Python kütüphanesi ve komut satırı aracı.
+          En kısa yol için <strong>heapq</strong> tabanlı öncelik kuyruğuyla <strong>Dijkstra</strong>;
+          çok duraklı rota için <strong>nearest-neighbor + 2-opt</strong> sezgiseli kullanıldı — Gezgin
+          Satıcı Problemi'nin kesin çözümü O(n!) olduğu için pratik değil. <strong>22 birim testiyle</strong>
+          doğrulandı; sınırlamaları README'de açıkça belirtildi.
+        </p>
+        <div class="tags">
+          <span>Python</span>
+          <span>Dijkstra</span>
+          <span>Graph</span>
+          <span>2-opt</span>
+          <span>pytest</span>
+        </div>
+        <a class="feature-link" href="https://github.com/sudenazdemirkol/route-solver" target="_blank" rel="noopener">
+          GitHub'da Gör
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg>
+        </a>
       </div>
     </article>
   </div>
