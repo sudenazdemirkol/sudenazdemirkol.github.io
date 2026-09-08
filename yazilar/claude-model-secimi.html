@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hangi Claude modeliyle çalışmalı? — Sudenaz Demirkol</title>
+<meta name="description" content="Claude'un model ailesi, fiyatları ve hangi işin hangi modele uygun olduğu. Bir de az konuşulan konu: effort seviyesi.">
+<link rel="canonical" href="https://sudenazdemirkol.github.io/yazilar/claude-model-secimi.html">
+<meta name="theme-color" content="#00ACAC">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://sudenazdemirkol.github.io/yazilar/claude-model-secimi.html">
+<meta property="og:title" content="Hangi Claude modeliyle çalışmalı?">
+<meta property="og:description" content="Model ailesi, fiyatlar ve hangi işin hangi modele uygun olduğu — bir de az konuşulan effort seviyesi.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2300ACAC'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='bold' fill='%23fff' text-anchor='middle'%3ESD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* Ana sayfayla aynı palet — aksan rengi iki temada da #00ACAC */
+:root{
+  --bg:#FFFFFF; --surface:#F5F5F5; --text:#1A1A1A; --text-soft:#878787;
+  --border:#BBBFBF; --accent:#00ACAC; --accent-soft:rgba(0,172,172,.10);
+  --band-bg:#1A1A1A; --band-text:#FFFFFF; --nav-bg:rgba(255,255,255,.92);
+}
+[data-theme="dark"]{
+  --bg:#000000; --surface:#464545; --text:#DFDEDC; --text-soft:#A6A7A2;
+  --border:#464545; --accent:#00ACAC; --accent-soft:rgba(0,172,172,.16);
+  --band-bg:#464545; --band-text:#DFDEDC; --nav-bg:rgba(0,0,0,.90);
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:17px; line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .3s ease, color .3s ease;
+}
+a{ color:var(--accent); text-decoration:none; transition:opacity .3s ease; }
+a:hover{ opacity:.75; }
+::selection{ background:var(--accent); color:#FFF; }
+::-webkit-scrollbar{ width:9px; }
+::-webkit-scrollbar-track{ background:var(--surface); }
+::-webkit-scrollbar-thumb{ background:var(--accent); }
+
+.wrap{ max-width:720px; margin:0 auto; padding:0 26px; }
+
+/* Üst çubuk */
+.top{
+  position:sticky; top:0; z-index:50;
+  background:var(--nav-bg); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.top-in{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+.geri{
+  font-size:.68rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--text); display:inline-flex; align-items:center; gap:9px;
+}
+.geri:hover{ color:var(--accent); opacity:1; }
+.geri svg{ width:14px; height:14px; }
+.theme-btn{
+  display:flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:50%;
+  border:1px solid var(--accent); background:transparent; color:var(--accent);
+  cursor:pointer; transition:all .3s ease;
+}
+.theme-btn:hover{ background:var(--accent); color:#FFF; }
+.theme-btn svg{ width:17px; height:17px; }
+
+/* Yazı başlığı */
+header.yazi{ padding:74px 0 42px; border-bottom:1px solid var(--border); }
+.etiket{
+  font-size:.62rem; font-weight:700; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:18px;
+}
+h1{ font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; line-height:1.2; letter-spacing:-.02em; margin-bottom:18px; }
+.tarih{ font-size:.85rem; color:var(--text-soft); }
+
+/* Gövde */
+article{ padding:44px 0 70px; }
+article h2{
+  font-size:1.25rem; font-weight:800; letter-spacing:-.01em;
+  margin:46px 0 16px; padding-top:6px;
+}
+article h2:first-child{ margin-top:0; }
+article p{ margin-bottom:20px; color:var(--text); }
+article ul{ margin:0 0 20px 22px; }
+article li{ margin-bottom:11px; }
+article strong{ font-weight:650; }
+code{
+  font-family:"SF Mono",Menlo,Consolas,monospace; font-size:.87em;
+  background:var(--accent-soft); color:var(--accent);
+  padding:2px 7px; border-radius:4px;
+}
+blockquote{
+  border-left:3px solid var(--accent);
+  background:var(--accent-soft);
+  padding:18px 22px; margin:28px 0;
+  font-size:1.02rem;
+}
+blockquote p:last-child{ margin-bottom:0; }
+.tablo-kaydir{ overflow-x:auto; margin:26px 0; }
+table{ width:100%; border-collapse:collapse; font-size:.92rem; min-width:460px; }
+th,td{ padding:12px 14px; text-align:left; border-bottom:1px solid var(--border); }
+th{
+  font-size:.62rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); white-space:nowrap;
+}
+td code{ white-space:nowrap; }
+.not{
+  border:1px solid var(--border); background:var(--surface);
+  padding:20px 22px; border-radius:10px; margin:32px 0;
+  font-size:.92rem; color:var(--text-soft);
+}
+.not strong{ color:var(--text); }
+
+footer{
+  border-top:1px solid var(--border); padding:34px 0 46px;
+  font-size:.8rem; color:var(--text-soft);
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between;
+}
+@media (max-width:640px){
+  body{ font-size:16px; }
+  header.yazi{ padding:52px 0 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap top-in">
+    <a href="../index.html#blog" class="geri">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="20" y1="12" x2="4" y2="12"/><polyline points="10 6 4 12 10 18"/></svg>
+      Tüm Yazılar
+    </a>
+    <button class="theme-btn" id="themeBtn" aria-label="Temayı değiştir">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="yazi">
+    <p class="etiket">Yapay Zekâ</p>
+    <h1>Hangi Claude modeliyle çalışmalı?</h1>
+    <p class="tarih">8 Eylül 2026</p>
+  </header>
+
+  <article>
+    <p>
+      Bir projeye başlarken karşına birden fazla model çıkıyor ve hepsi farklı fiyatlandırılmış.
+      İlk refleks genelde "en pahalısını seçeyim, en iyisi odur" oluyor. Bu hem gereksiz para
+      harcatıyor hem de her zaman doğru olmuyor. Bu yazıda modelleri, fiyatlarını ve hangi işin
+      hangisine uygun olduğunu topladım — bir de pek konuşulmayan ama seçimden bile önemli olabilen
+      bir ayardan bahsedeceğim.
+    </p>
+
+    <h2>Modeller ve fiyatlar</h2>
+    <div class="tablo-kaydir">
+      <table>
+        <thead>
+          <tr><th>Model</th><th>Model ID</th><th>Girdi $/1M</th><th>Çıktı $/1M</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Claude Fable 5.1</td><td><code>claude-fable-5-1</code></td><td>$10</td><td>$50</td></tr>
+          <tr><td>Claude Opus 5</td><td><code>claude-opus-5</code></td><td>$5</td><td>$25</td></tr>
+          <tr><td>Claude Sonnet 5</td><td><code>claude-sonnet-5</code></td><td>$2</td><td>$10</td></tr>
+          <tr><td>Claude Haiku 4.5</td><td><code>claude-haiku-4-5</code></td><td>$1</td><td>$5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Fiyatlar milyon token başına. Kabaca bir token dörtte üç kelime kadar; yani 1 milyon token
+      epeyce uzun bir metin. Opus 4.6/4.7/4.8 ve Sonnet 4.6 gibi bir önceki nesil modeller hâlâ
+      çalışıyor ama yeni bir projeye onlarla başlamak için bir sebep yok.
+    </p>
+
+    <h2>Hangisi ne için</h2>
+    <ul>
+      <li><strong>Haiku 4.5</strong> — sınıflandırma, etiketleme, toplu veri çıkarma, basit sohbet. Ucuz ve hızlı. Çok sayıda küçük işi olan yerlerde doğru tercih.</li>
+      <li><strong>Sonnet 5</strong> — günlük iş yükü. Rutin ama yüzeysel olmayan işler. Opus'un yarı fiyatına yakın bir performans veriyor.</li>
+      <li><strong>Opus 5</strong> — varsayılan tercih. Kod yazma, çok adımlı işler, ciddi muhakeme gerektiren her şey. Emin değilsen buradan başla.</li>
+      <li><strong>Fable 5.1</strong> — en zor muhakeme ve uzun soluklu ajan işleri. Pahalı, ve çoğu iş için gereğinden fazla.</li>
+    </ul>
+
+    <h2>Asıl mesele: effort seviyesi</h2>
+    <p>
+      Model seçimi hikâyenin yarısı. İkinci ayar <strong>effort</strong> — yani modelin bir işe ne
+      kadar kafa yoracağı. <code>low</code>, <code>medium</code>, <code>high</code>,
+      <code>xhigh</code> ve <code>max</code> seviyeleri var.
+    </p>
+    <blockquote>
+      <p>
+        Yeni bir modeli düşük effort'ta çalıştırmak, çoğu zaman eski bir modeli yüksek effort'ta
+        çalıştırmaktan hem daha iyi hem daha ucuz sonuç veriyor.
+      </p>
+    </blockquote>
+    <p>
+      Bu yüzden doğru soru "hangi model" değil, <strong>"hangi model ve hangi effort"</strong>.
+      Sınıflandırma gibi basit işlerde <code>low</code> fazlasıyla yeter; kod yazarken ya da uzun
+      soluklu bir işte <code>high</code> veya <code>xhigh</code> mantıklı. <code>max</code>'i ise
+      ancak doğruluk maliyetten önemliyse kullanmak gerekiyor.
+    </p>
+    <p>
+      Pratik yaklaşım şu: pahalı modele geçmeden önce, elindeki modelin effort'unu yükseltmeyi dene.
+      Çoğu zaman ihtiyacın olan şey bu.
+    </p>
+
+    <h2>Maliyeti düşüren iki şey</h2>
+    <ul>
+      <li><strong>Prompt caching</strong> — isteklerinin başında tekrar eden bir kısım varsa (sistem talimatı, sabit bir doküman) bunu önbelleğe alabiliyorsun. Aynı içeriği her seferinde baştan ödemek zorunda kalmıyorsun.</li>
+      <li><strong>Batch API</strong> — işin acil değilse toplu gönderim <strong>%50 indirimli</strong>. Anlık cevap beklemediğin her yerde bedava kazanç.</li>
+    </ul>
+
+    <div class="not">
+      <strong>Not:</strong> Buradaki fiyatlar 8 Eylül 2026'da
+      <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a>
+      üzerinden kontrol edildi. Model isimleri ve fiyatlar sık değişiyor, kullanmadan önce resmi
+      sayfaya bakmanı öneririm. Bağlam penceresi rakamlarını bilerek yazmadım — baktığım iki kaynak
+      farklı değerler gösteriyordu, emin olmadığım bir sayıyı buraya koymak istemedim.
+    </div>
+  </article>
+
+  <footer>
+    <span>&copy; <span id="yil"></span> Sudenaz Demirkol</span>
+    <a href="../index.html">sudenazdemirkol.github.io</a>
+  </footer>
+</div>
+
+<script>
+/* Tema — ana sayfayla aynı "tema" anahtarını kullanıyor, iki sayfa arasında tutarlı kalıyor */
+const html = document.documentElement;
+const themeBtn = document.getElementById("themeBtn");
+const themeIcon = document.getElementById("themeIcon");
+const GUNES = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+const AY = '<path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/>';
+function temaUygula(t){
+  html.setAttribute("data-theme", t);
+  themeIcon.innerHTML = (t === "dark") ? GUNES : AY;
+  try { localStorage.setItem("tema", t); } catch(e){}
+}
+(function(){
+  let k = null;
+  try { k = localStorage.getItem("tema"); } catch(e){}
+  temaUygula(k || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+})();
+themeBtn.addEventListener("click", () =>
+  temaUygula(html.getAttribute("data-theme") === "dark" ? "light" : "dark"));
+document.getElementById("yil").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

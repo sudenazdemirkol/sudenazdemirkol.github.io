@@ -409,6 +409,8 @@ section{ padding:120px 0; position:relative; }
    BLOG — kartlar JS dizisinden basılır
    ============================================================ */
 .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+/* Az sayıda yazı varken kartlar ortada dursun, sayfaya yayılmasın */
+#blogGrid{ grid-template-columns:repeat(auto-fit,minmax(0,340px)); justify-content:center; }
 
 .post{
   background:var(--bg);
@@ -653,6 +655,7 @@ footer .accent{ color:var(--accent); font-weight:700; }
     <ul class="nav-links" id="navLinks">
       <li><a href="#hakkimda">Hakkımda</a></li>
       <li><a href="#yetkinlikler">Yetkinlikler</a></li>
+      <li><a href="#blog">Blog</a></li>
       <li><a href="#projeler">Projeler</a></li>
       <li><a href="#iletisim">İletişim</a></li>
     </ul>
@@ -841,14 +844,9 @@ footer .accent{ color:var(--accent); font-weight:700; }
   </div>
 </section>
 
-<!-- BLOG BÖLÜMÜ — gerçek yazı yazılana kadar gizlendi.
-     Geri açmak için: aşağıdaki yorum işaretlerini kaldır, menüye de
-     <li><a href="#blog">Blog</a></li> satırını geri ekle.
-     Yazılar JS içindeki blogYazilari dizisinden basılıyor.
-
-<!~~ ============================================================
+<!-- ============================================================
      5) BLOG — kartlar aşağıdaki JS dizisinden basılır
-     ============================================================ ~~>
+     ============================================================ -->
 <section id="blog">
   <div class="container">
     <div class="sec-head reveal">
@@ -858,15 +856,14 @@ footer .accent{ color:var(--accent); font-weight:700; }
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         <span class="dots"></span>
       </div>
-      <p class="sec-sub">Öğrendiklerim, staj notlarım ve yol boyunca aldığım dersler.</p>
+      <p class="sec-sub">Öğrendiklerim ve yol boyunca aldığım notlar.</p>
     </div>
-    <!~~ Kartlar JS ile buraya basılır, elle yazma ~~>
+    <!-- Kartlar JS ile buraya basılır, elle yazma -->
     <div class="grid" id="blogGrid"></div>
   </div>
 </section>
 
 
--->
 
 <!-- ============================================================
      6) PROJELER — koyu bant, şimdilik boş kartlar
@@ -1026,22 +1023,10 @@ footer .accent{ color:var(--accent); font-weight:700; }
    ============================================================ */
 const blogYazilari = [
   {
-    baslik: "Python'da Öğrendiklerim",
-    ozet:   "Python'a başlarken kafamı karıştıran konular ve bunları nasıl çözdüğüm üzerine kısa bir yazı.",
-    tarih:  "12 Ağustos 2026",
-    link:   "#"   // Yazının linki — henüz yoksa "#" bırak
-  },
-  {
-    baslik: "Staj Sürecimden Notlar",
-    ozet:   "İlk staj deneyimimde öğrendiklerim: ekip içinde çalışmak, soru sormak ve gerçek projelerin işleyişi.",
-    tarih:  "28 Temmuz 2026",
-    link:   "#"
-  },
-  {
-    baslik: "C Dilinde İlk Projelerim",
-    ozet:   "Pointer'lar, bellek yönetimi ve derleyici hatalarıyla geçen ilk C projelerimden çıkardığım dersler.",
-    tarih:  "5 Temmuz 2026",
-    link:   "#"
+    baslik: "Hangi Claude modeliyle çalışmalı?",
+    ozet:   "Model ailesi, fiyatlar ve hangi işin hangisine uygun olduğu. Bir de seçimden bile önemli olabilen bir ayar: effort seviyesi.",
+    tarih:  "8 Eylül 2026",
+    link:   "yazilar/claude-model-secimi.html"
   }
 ];
 
